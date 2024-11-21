@@ -9,7 +9,7 @@ export class UsersService {
   constructor(@InjectModel(User.name) private userModel: Model<User>) {}
 
   async createUser(
-    username: string,
+    name: string,
     email: string,
     password: string,
   ): Promise<User> {
@@ -23,7 +23,7 @@ export class UsersService {
 
     const hashedPassword = await hashPassword(password);
     const user = new this.userModel({
-      username,
+      name,
       email,
       password: hashedPassword,
     });

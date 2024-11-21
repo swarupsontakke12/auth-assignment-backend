@@ -12,13 +12,13 @@ export class AuthService {
     private loggingService: LoggingService,
   ) {}
 
-  async register(username: string, email: string, password: string) {
+  async register(name: string, email: string, password: string) {
     try {
       this.loggingService.log(
         `User is Registering with Registraion Post Api this email : ${email}`,
       );
       const user = await this.usersService.createUser(
-        username,
+        name,
         email,
         password,
       );
